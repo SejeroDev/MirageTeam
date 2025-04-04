@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirage Team</title>
+    <style>
+        body {
+            background-color: #00AEEF;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            margin-top: 60px;
+        }
+        .navbar {
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 100px auto 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .thumbnail {
+            max-width: 100px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+        .dog-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            transition: transform 1s linear;
+            animation: rotateDog 3s infinite linear;
+        }
+        @keyframes rotateDog {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        button {
+            background: linear-gradient(45deg, #00CFFF, #007ACC);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background: linear-gradient(45deg, #007ACC, #00CFFF);
+            transform: scale(1.05);
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script>
+        function showContent(section) {
+            if (section === 'Traducciones') {
+                document.getElementById('content').innerHTML = showTranslationMenu();
+            } else if (section === 'Fangames') {
+                document.getElementById('content').innerHTML = showFangamesMenu();
+            } else if (section === 'Redes') {
+                document.getElementById('content').innerHTML = showSocialMenu();
+            } else {
+                document.getElementById('content').innerHTML = `<h1>${section}</h1><p>Mirage Team es un equipo apasionado por los videojuegos, dedicado a crear fangames inspirados en Undertale y experiencias originales. Nuestra misión es ofrecer desafíos, personajes y mecánicas que expandan este universo, respetando su esencia pero innovando con nuevas ideas. Priorizamos una jugabilidad desafiante, una narrativa inmersiva y el feedback de la comunidad para mejorar constantemente. Si compartís nuestra pasión, buscamos programadores, artistas y escritores para unirse a nuestra aventura. ¡Sumate y ayúdanos a dar vida a nuevas historias!</p>`;
+            }
+        }
+        
+        function showTranslationMenu() {
+            return `<h1>Traducciones</h1>
+                    <p>Selecciona un proyecto:</p>
+                    <img src="images/t1.png" alt="Undertale Souls Link" class="thumbnail" onclick="showUDTSLFiles()">`;
+        }
+        
+        function showUDTSLFiles() {
+            document.getElementById('content').innerHTML = `<h1>Undertale: 𝙎𝙤𝙪𝙡𝙨 𝙇𝙞𝙣𝙠</h1>
+                    <img src="images/t1.png" alt="Undertale Souls Link" class="thumbnail">
+                    <p>Descarga la traducción aquí:</p>
+                    <a href="udtsl/7_1 Español.png" download>
+                        <button>Descargar 7_1 Español</button>
+                    </a>`;
+        }
+        
+        function showFangamesMenu() {
+            return `<h1>Fangames</h1>
+                    <p>Selecciona un juego:</p>
+                    <img src="images/f1.png" alt="GameJolt" class="thumbnail" onclick="showGameJoltPage1()">`;
+        }
+        
+        function showGameJoltPage1() {
+            document.getElementById('content').innerHTML = `<h1>Deltarune x Cult of the Lamb: El Falso Cordero</h1>
+                    <img src="images/f1.png" alt="GameJolt" class="thumbnail">
+                    <p>Visita nuestra página en GameJolt:</p>
+                    <a href="https://gamejolt.com/games/COTLXDR/975891" target="_blank">
+                        <button>Ir a GameJolt</button>
+                    </a>`;
+        }
+        
+        function showSocialMenu() {
+            return `<h1>Redes</h1>
+                    <p>Síguenos en nuestras redes sociales:</p>
+                    <a href="https://discord.gg/3faZHrnd4j" target="_blank">
+                        <button>Ir a Discord</button>
+                    </a>
+                    <a href="https://gamejolt.com/@MirageTeam" target="_blank">
+                        <button>Ir a GameJolt</button>
+                    </a>`;
+        }
+        
+        function playDogSound() {
+            let audio = new Audio('audio/dog.mp3');
+            audio.play();
+        }
+    </script>
+</head>
+<body>
+    <h1>Mirage Team</h1>
+    <nav class="navbar">
+        <a onclick="showContent('Inicio')">Inicio</a>
+        <a onclick="showContent('Fangames')">Fangames</a>
+        <a onclick="showContent('Traducciones')">Traducciones</a>
+        <a onclick="showContent('Redes')">Redes</a>
+    </nav>
+    <div class="container" id="content">
+        <h1>Bienvenido a Mirage Team</h1>
+        <p>Explora nuestra comunidad y proyectos.</p>
+    </div>
+    <img src="images/toby.png" alt="Toby" class="dog-button" onclick="playDogSound()">
+</body>
+</html>
