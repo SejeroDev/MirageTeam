@@ -133,7 +133,8 @@
         function showFangamesMenu() {
             return `<h1>Fangames</h1>
                     <p>Selecciona un juego:</p>
-                    <img src="images/f1.png" alt="GameJolt" class="thumbnail" onclick="showGameJoltPage1()">`;
+                    <img src="images/f1.png" alt="GameJolt" class="thumbnail" onclick="showGameJoltPage1()">
+                    <img src="images/f2.png" alt="GameJolt" class="thumbnail" onclick="showGameJoltPage2()">`;
         }
         
         function showGameJoltPage1() {
@@ -141,6 +142,14 @@
                     <img src="images/f1.png" alt="GameJolt" class="thumbnail">
                     <p>Visita nuestra página en GameJolt:</p>
                     <a href="https://gamejolt.com/games/COTLXDR/975891" target="_blank">
+                        <button>Ir a GameJolt</button>
+                    </a>`;
+        }
+        function showGameJoltPage2() {
+            document.getElementById('content').innerHTML = `<h1>Undertale Bastille</h1>
+                    <img src="images/f2.png" alt="GameJolt" class="thumbnail">
+                    <p>Visita nuestra página en GameJolt:</p>
+                    <a href="https://gamejolt.com/games/Undertale-Bastille/987997" target="_blank">
                         <button>Ir a GameJolt</button>
                     </a>`;
         }
